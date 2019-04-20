@@ -30,14 +30,12 @@ function getPosition(mouseEvent, sigCanvas) {
 }*/
 
 function initialize() {
-alert('1');
   // get references to the canvas element as well as the 2D drawing context
   var sigCanvas = document.getElementById("canvas");
   var context = sigCanvas.getContext("2d");
   context.strokeStyle = "#f8920f";
   context.lineJoin = "round";
-  context.lineWidth = 10;
-alert('2');
+  context.lineWidth = 3;
 
   // Add background image to canvas - remove for blank white canvas
 /*  var background = new Image();
@@ -46,7 +44,6 @@ alert('2');
   background.onload = function() {
     context.drawImage(background, 0, 0);
   }*/
-alert('3');
 
   // This will be defined on a TOUCH device such as iPad or Android, etc.
   var is_touch_device = 'ontouchstart' in document.documentElement;
@@ -73,7 +70,6 @@ alert('3');
         }
       }
     };
-alert('4');
 
     // create a function to pass touch events and coordinates to drawer
     function draw(event) {
@@ -101,7 +97,6 @@ alert('4');
       // pass the coordinates to the appropriate handler
       drawer[event.type](coors);
     }
-alert('5');
 
     // attach the touchstart, touchmove, touchend event listeners.
     sigCanvas.addEventListener('touchstart', draw, false);
@@ -112,10 +107,8 @@ alert('5');
     sigCanvas.addEventListener('touchmove', function(event) {
       event.preventDefault();
     }, false);
-alert('6');
     
   } else {
-alert('7');
 
     // start drawing when the mousedown event fires, and attach handlers to
     // draw a line to wherever the mouse moves to
@@ -133,7 +126,6 @@ alert('7');
         finishDrawing(mouseEvent, sigCanvas, context);
       });
     });
-alert('8');
 
   }
 }
@@ -165,6 +157,5 @@ function finishDrawing(mouseEvent, sigCanvas, context) {
 
 // Clear the canvas context using the canvas width and height
 function clearCanvas(canvas, ctx) {
-alert("OK");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
