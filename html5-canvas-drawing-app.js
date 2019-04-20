@@ -42,10 +42,10 @@ var drawingApp = (function () {
 		mediumStartY = 19,
 		mediumImageWidth = 93,
 		mediumImageHeight = 46,
-		drawingAreaX = 111,
-		drawingAreaY = 11,
-		drawingAreaWidth = 267,
-		drawingAreaHeight = 200,
+		drawingAreaX = 10,
+		drawingAreaY = 10,
+		drawingAreaWidth = canvasWidth - 20,
+		drawingAreaHeight = canvasHeight - 10,
 		toolHotspotStartY = 23,
 		toolHotspotHeight = 38,
 		sizeHotspotStartY = 157,
@@ -71,7 +71,12 @@ var drawingApp = (function () {
   context.strokeStyle = "#df4b26";
   context.lineJoin = "round";
   context.lineWidth = 5;
-			
+  
+  context.save();
+  context.beginPath();
+  context.rect(drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
+  context.clip();
+  			
   for(var i=0; i < clickX.length; i++) {		
     context.beginPath();
     if(clickDrag[i] && i){
@@ -83,6 +88,9 @@ var drawingApp = (function () {
      context.closePath();
      context.stroke();
   }
+  
+  context.restore();
+  
 		},
 
 		// Adds a point to the drawing array.
