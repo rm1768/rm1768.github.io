@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create HTML5 Canvas JavaScript Drawing App Example</title>
+    <style>
+    	canvas {
+    		position: absolute;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+    	}
+    </style>      
+  </head>
+  <body>
+    <div>Math Expression</div>
+    <canvas id="canvasDiv" width="490" height="220" style="border:2px solid #000000; position: absolute;"></canvas>
+        <!--div id="canvasDiv"></div-->
+         <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="html5-canvas-drawing-app.js"></script>
+    <script type="text/javascript">
+    	 drawingApp.init();
+	</script>
+  </body>
+</html>
