@@ -30,20 +30,23 @@ function getPosition(mouseEvent, sigCanvas) {
 }*/
 
 function initialize() {
+alert('1');
   // get references to the canvas element as well as the 2D drawing context
   var sigCanvas = document.getElementById("canvas");
   var context = sigCanvas.getContext("2d");
   context.strokeStyle = "#f8920f";
   context.lineJoin = "round";
   context.lineWidth = 10;
+alert('2');
 
   // Add background image to canvas - remove for blank white canvas
-  var background = new Image();
+/*  var background = new Image();
   background.src = "https://3.bp.blogspot.com/_jFM-Fd8NDFE/TLhmRK1h8AI/AAAAAAAAKcU/NKNPe051PbA/s1600/OldCanvas-5.jpg";
   // Make sure the image is loaded first otherwise nothing will draw.
   background.onload = function() {
     context.drawImage(background, 0, 0);
-  }
+  }*/
+alert('3');
 
   // This will be defined on a TOUCH device such as iPad or Android, etc.
   var is_touch_device = 'ontouchstart' in document.documentElement;
@@ -70,6 +73,7 @@ function initialize() {
         }
       }
     };
+alert('4');
 
     // create a function to pass touch events and coordinates to drawer
     function draw(event) {
@@ -97,6 +101,7 @@ function initialize() {
       // pass the coordinates to the appropriate handler
       drawer[event.type](coors);
     }
+alert('5');
 
     // attach the touchstart, touchmove, touchend event listeners.
     sigCanvas.addEventListener('touchstart', draw, false);
@@ -107,7 +112,10 @@ function initialize() {
     sigCanvas.addEventListener('touchmove', function(event) {
       event.preventDefault();
     }, false);
+alert('6');
+    
   } else {
+alert('7');
 
     // start drawing when the mousedown event fires, and attach handlers to
     // draw a line to wherever the mouse moves to
@@ -125,6 +133,7 @@ function initialize() {
         finishDrawing(mouseEvent, sigCanvas, context);
       });
     });
+alert('8');
 
   }
 }
