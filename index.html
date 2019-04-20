@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Create HTML5 Canvas JavaScript Drawing App Example</title>
-  </head>
-  <body>
-    <div>Math Expression</div>
-    <canvas id="canvasDiv" width="490" height="220" style="border:2px solid #000000; position: absolute;"></canvas>
-        <!--div id="canvasDiv"></div-->
-         <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
-    <script type="text/javascript" src="html5-canvas-drawing-app.js"></script>
-    <script type="text/javascript">
-    	 drawingApp.init();
-	</script>
-  </body>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas Freehand Drawing w/ jQuery (touch + mouse)</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div id="iframe">
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <button type="button" value="Clear Canvas" id="clearbutton" onclick="clearCanvas(canvas,ctx);">Clear</button>
+</div>
+
+<!--background-image: url('https://3.bp.blogspot.com/_jFM-Fd8NDFE/TLhmRK1h8AI/AAAAAAAAKcU/NKNPe051PbA/s1600/OldCanvas-5.jpg');-->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
 </html>
