@@ -44,8 +44,8 @@ var drawingApp = (function () {
 		mediumImageHeight = 46,
 		drawingAreaX = 10,
 		drawingAreaY = 10,
-		drawingAreaWidth = canvasWidth - 20,
-		drawingAreaHeight = canvasHeight - 10,
+		drawingAreaWidth = 490,
+		drawingAreaHeight = 220,
 		toolHotspotStartY = 23,
 		toolHotspotHeight = 38,
 		sizeHotspotStartY = 157,
@@ -115,15 +115,15 @@ var drawingApp = (function () {
 
 		// Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
 		init = function () {
-var canvasDiv = document.getElementById('canvasDiv');
-canvas = document.createElement('canvas');
-canvas.setAttribute('width', canvasWidth);
-canvas.setAttribute('height', canvasHeight);
-canvas.setAttribute('id', 'canvas');
-canvasDiv.appendChild(canvas);
-if(typeof G_vmlCanvasManager != 'undefined') {
-	canvas = G_vmlCanvasManager.initElement(canvas);
-}
+var canvas = document.getElementById('canvasDiv');
+//canvas = document.createElement('canvas');
+//canvas.setAttribute('width', canvasWidth);
+//canvas.setAttribute('height', canvasHeight);
+//canvas.setAttribute('id', 'canvas');
+//canvasDiv.appendChild(canvas);
+//if(typeof G_vmlCanvasManager != 'undefined') {
+//	canvas = G_vmlCanvasManager.initElement(canvas);
+//}
 context = canvas.getContext("2d");
 
 var press = function(e){
