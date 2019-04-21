@@ -4,31 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <title>HTML5 Canvas Freehand Drawing w/ jQuery (touch + mouse)</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
+  <div>
+  <input type="radio" name="strokeStyle" value="draw" checked>Draw
+  <input type="radio" name="strokeStyle" value="erase">Erase
+  <input type="button" value="Clear" id="clearbutton" class="button" onclick="clearCanvas();">
+  <input type="button" value="Math Exp" id="expbutton" class="button" onclick="mathExp();">
+  </div>
   <div id="iframe">
   <canvas id="canvas" width="500px" height="500px"></canvas>
-  <button type="button" value="Clear Canvas" id="clearbutton" onclick="clearCanvas(canvas,ctx);">Clear</button>
 </div>
-
-<!--background-image: url('https://3.bp.blogspot.com/_jFM-Fd8NDFE/TLhmRK1h8AI/AAAAAAAAKcU/NKNPe051PbA/s1600/OldCanvas-5.jpg');-->
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+  function clearCanvas() {
+    var canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    var rect = canvas.getBoundingClientRect();
+    context.fillRect(0, 0, rect.width, rect.height);
+  }
   
-
-    <script type="text/javascript" src="js/index.js"></script>
-
-
-
-
+  function mathExp() {
+    var canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+    alert(imgData.data.length);
+/*
+    var i;
+    for (i = 0; i < imgData.data.length; i += 4) {
+      alert(imgData.data[i]);
+      alert(imgData.data[i + 1]);
+      alert(imgData.data[i + 2]);
+      alert(imgData.data[i + 3]);
+    }
+  */    	
+  }
+  </script>
 </body>
-
 </html>
