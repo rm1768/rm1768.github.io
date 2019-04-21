@@ -140,7 +140,16 @@ function drawLine(mouseEvent, sigCanvas, context) {
   var sigCanvas = document.getElementById("canvas");
   var context = sigCanvas.getContext("2d");
   context.lineJoin = "round";
-  if ($('input[name="strokeStyle"]:checked').val() == 'draw') {
+  
+  var strokeStyles = document.getElementsByName("strokeStyle");
+  var selectedStrokeStyle;
+  for(var i = 0; i < strokeStyles.length; i++) {
+     if (strokeStyles[i].checked) {
+       selectedStrokeStyle = genders[i].value;
+     }
+  }
+  
+  if (selectedStrokeStyle == 'draw') {
     context.strokeStyle = "rgb(255, 255, 255)";
     context.lineWidth = 3;
   } else {
