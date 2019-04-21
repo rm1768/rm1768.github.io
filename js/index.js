@@ -145,7 +145,7 @@ function drawLine(mouseEvent, sigCanvas, context) {
   var selectedStrokeStyle;
   for(var i = 0; i < strokeStyles.length; i++) {
      if (strokeStyles[i].checked) {
-       selectedStrokeStyle = genders[i].value;
+       selectedStrokeStyle = strokeStyles[i].value;
      }
   }
   
