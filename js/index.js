@@ -33,9 +33,13 @@ function initialize() {
   // get references to the canvas element as well as the 2D drawing context
   var sigCanvas = document.getElementById("canvas");
   var context = sigCanvas.getContext("2d");
-  context.strokeStyle = "#f8920f";
+  var rect = sigCanvas.getBoundingClientRect();
+  context.fillRect(0, 0, rect.width, rect.height);
+
+  context.strokeStyle = "rgb(255, 255, 255)";
   context.lineJoin = "round";
   context.lineWidth = 3;
+  
 
   // Add background image to canvas - remove for blank white canvas
 /*  var background = new Image();
@@ -133,6 +137,16 @@ function initialize() {
 // draws a line to the x and y coordinates of the mouse event inside
 // the specified element using the specified context
 function drawLine(mouseEvent, sigCanvas, context) {
+  var sigCanvas = document.getElementById("canvas");
+  var context = sigCanvas.getContext("2d");
+  context.lineJoin = "round";
+  if ($('input[name="strokeStyle"]:checked').val() == 'draw') {
+    context.strokeStyle = "rgb(255, 255, 255)";
+    context.lineWidth = 3;
+  } else {
+    context.strokeStyle = "rgb(0, 0, 0)";
+    context.lineWidth = 15;
+  }
 
   var position = getPosition(mouseEvent, sigCanvas);
 
@@ -155,7 +169,3 @@ function finishDrawing(mouseEvent, sigCanvas, context) {
     .unbind("mouseout");
 }
 
-// Clear the canvas context using the canvas width and height
-function clearCanvas(canvas, ctx) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
