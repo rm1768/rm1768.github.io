@@ -144,10 +144,13 @@ function drawLine(mouseEvent, sigCanvas, context) {
   var strokeStyles = document.getElementsByName("strokeStyle");
   var selectedStrokeStyle;
   for(var i = 0; i < strokeStyles.length; i++) {
+  alert(i);
      if (strokeStyles[i].checked) {
+     alert('YES');
        selectedStrokeStyle = strokeStyles[i].value;
      }
   }
+  alert(selectedStrokeStyle);
   
   if (selectedStrokeStyle == 'draw') {
     context.strokeStyle = "rgb(255, 255, 255)";
