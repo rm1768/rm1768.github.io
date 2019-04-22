@@ -29,6 +29,24 @@ function getPosition(mouseEvent, sigCanvas) {
   };
 }*/
 
+function setColor(context) {
+  var strokeStyles = document.getElementsByName("strokeStyle");
+  var selectedStrokeStyle;
+  for(var i = 0; i < strokeStyles.length; i++) {
+     if (strokeStyles[i].checked) {
+       selectedStrokeStyle = strokeStyles[i].value;
+     }
+  }
+  
+  if (selectedStrokeStyle == 'draw') {
+    context.strokeStyle = "rgb(255, 255, 255)";
+    context.lineWidth = 3;
+  } else {
+    context.strokeStyle = "rgb(0, 0, 0)";
+    context.lineWidth = 15;
+  }
+}
+
 function initialize() {
   // get references to the canvas element as well as the 2D drawing context
   var sigCanvas = document.getElementById("canvas");
@@ -63,6 +81,7 @@ function initialize() {
       },
       touchmove: function(coors) {
         if (this.isDrawing) {
+          setColor(context);
           context.lineTo(coors.x, coors.y);
           context.stroke();
         }
@@ -137,29 +156,10 @@ function initialize() {
 // draws a line to the x and y coordinates of the mouse event inside
 // the specified element using the specified context
 function drawLine(mouseEvent, sigCanvas, context) {
-  var sigCanvas = document.getElementById("canvas");
-  var context = sigCanvas.getContext("2d");
+//  var sigCanvas = document.getElementById("canvas");
+//  var context = sigCanvas.getContext("2d");
   context.lineJoin = "round";
-  
-  var strokeStyles = document.getElementsByName("strokeStyle");
-  var selectedStrokeStyle;
-  for(var i = 0; i < strokeStyles.length; i++) {
-  alert(i);
-     if (strokeStyles[i].checked) {
-     alert('YES');
-       selectedStrokeStyle = strokeStyles[i].value;
-     }
-  }
-  alert(selectedStrokeStyle);
-  
-  if (selectedStrokeStyle == 'draw') {
-    context.strokeStyle = "rgb(255, 255, 255)";
-    context.lineWidth = 3;
-  } else {
-    context.strokeStyle = "rgb(0, 0, 0)";
-    context.lineWidth = 15;
-  }
-
+  setColor(context);
   var position = getPosition(mouseEvent, sigCanvas);
 
   context.lineTo(position.X, position.Y);
